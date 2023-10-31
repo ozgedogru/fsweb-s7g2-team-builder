@@ -1,23 +1,25 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
 
 function App() {
   const [memberList, setMemberList] = useState([]);
 
-  console.log("memberList: ", memberList);
-
   return (
     <>
-      <h2>Uye Formu</h2>
+      <h2>Form</h2>
       <hr />
       <Form memberList={memberList} setMemberList={setMemberList} />
-      <h2>Uye Liste</h2>
+      <h2>List</h2>
       <hr />
       <div>
-        <ul>
+        <ul class="list-group list-group-flush">
           {memberList?.map((m) => (
-            <li>{m.name}</li>
+            <>
+              <li class="list-group-item">
+                {m.name} ({m.rol}) : {m.email}
+              </li>
+            </>
           ))}
         </ul>
       </div>

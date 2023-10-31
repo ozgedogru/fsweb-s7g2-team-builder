@@ -24,15 +24,14 @@ function Form({ memberList, setMemberList }) {
     console.log("memberList", memberList);
   }, [memberList]);
 
-  useEffect(() => {
-    console.log("formData: ", formData);
-  }, [formData]);
-
   return (
-    <form onSubmit={submitHandler}>
-      <div>
-        <label htmlFor="name">Ad/Soyad : </label>
+    <form class="row gy-2 gx-3 align-items-center" onSubmit={submitHandler}>
+      <div class="col-md-6">
+        <label class="form-label " htmlFor="name">
+          Ad/Soyad :{" "}
+        </label>
         <input
+          class="form-control"
           id="name"
           type="text"
           onChange={(e) => {
@@ -40,9 +39,13 @@ function Form({ memberList, setMemberList }) {
           }}
         />
       </div>
-      <div>
-        <label htmlFor="user-mail">E-mail : </label>
+      <div class="col-md-6">
+        <label class="form-label" htmlFor="user-mail">
+          E-mail :{" "}
+        </label>
         <input
+          class="form-control"
+          placeholder="email@example.com"
           id="user-mail"
           type="email"
           onChange={(e) => {
@@ -51,17 +54,24 @@ function Form({ memberList, setMemberList }) {
         />
       </div>
       <div>
-        <label htmlFor="rol">Rol : </label>
+        <label class="form-label" htmlFor="rol">
+          Rol :{" "}
+        </label>
         <input
+          class="form-control"
           id="rol"
           type="text"
+          placeholder="frontend eng, backend eng, designer..."
           onChange={(e) => {
             setFormData({ ...formData, rol: e.target.value });
           }}
         />
       </div>
-
-      <button type="submit">Ekle!</button>
+      <div>
+        <button class="btn btn-secondary" type="submit">
+          Ekle!
+        </button>
+      </div>
     </form>
   );
 }
