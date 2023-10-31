@@ -1,15 +1,11 @@
 import { useEffect, useState } from "react";
 
-function Form(props) {
+function Form({ memberList, setMemberList }) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     rol: "",
   });
-
-  const [memberList, setMemberList] = useState([
-    { name: "ozge", email: "ozgeedogruu@gmail.com" },
-  ]);
 
   function submitHandler(e) {
     console.log("Uye eklendi");
@@ -19,14 +15,17 @@ function Form(props) {
   }
 
   function addMember(member) {
-    setMemberList([...memberList, member]);
+    {
+      setMemberList([...memberList, member]);
+    }
   }
+
   useEffect(() => {
-    console.log(memberList);
+    console.log("memberList", memberList);
   }, [memberList]);
 
   useEffect(() => {
-    console.log(formData);
+    console.log("formData: ", formData);
   }, [formData]);
 
   return (

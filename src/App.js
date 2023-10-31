@@ -1,19 +1,24 @@
+import { useEffect, useState } from "react";
 import "./App.css";
 import Form from "./components/Form";
 
-function App(props) {
-  const { memberList, addMember } = props;
+function App() {
+  const [memberList, setMemberList] = useState([]);
+
+  console.log("memberList: ", memberList);
 
   return (
     <>
-      <h1>Uye Formu</h1>
+      <h2>Uye Formu</h2>
       <hr />
-      <Form />
-      <div addMember={addMember} memberList={memberList}>
+      <Form memberList={memberList} setMemberList={setMemberList} />
+      <h2>Uye Liste</h2>
+      <hr />
+      <div>
         <ul>
-          {memberList?.map((m) => {
-            return <li>{m.name}</li>;
-          })}
+          {memberList?.map((m) => (
+            <li>{m.name}</li>
+          ))}
         </ul>
       </div>
     </>
